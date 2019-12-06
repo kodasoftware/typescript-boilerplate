@@ -1,0 +1,37 @@
+{
+  "name": "PROJECT_NAME",
+  "version": "0.0.1",
+  "description": "DESCRIPTION",
+  "main": "index.js",
+  "outDir": "dist",
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "tsc --listFiles -p tsconfig.json",
+    "compile": "npm run build && npm run post-compile",
+    "post-compile": "cp package.json package-lock.json $npm_package_outDir",
+    "test": "ts-mocha -p test/tsconfig.json 'test/**/*.spec.ts' --exit",
+    "deploy": "npm publish $npm_package_outDir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORGANISATION/REPOSITORY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ORGANISATION/REPOSITORY/issues"
+  },
+  "homepage": "https://github.com/ORGANISATION/REPOSITORY#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.9",
+    "mocha": "^6.2.0",
+    "nodemon": "^2.0.1",
+    "ts-mocha": "^6.0.0",
+    "ts-node": "^8.3.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.5.3"
+  }
+}
